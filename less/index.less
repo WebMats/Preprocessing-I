@@ -44,8 +44,10 @@ q:before, q:after {
 	content: none;
 }
 table {
-	border-collapse: collapse;
 	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 /* Set every element's box-sizing to border-box */
@@ -56,4 +58,135 @@ table {
 html, body {
     height: 100%;
 }
+html {
+	font-size: 62.5%;
+	@media (max-width: 500px) {
+			font-size: 50%;
+	}
+}
+
+// *****==============****** VARIABLES
+@container-max-width: 700px;
+@button-color: rgb(117, 117, 117);
+@topspacer: 4rem;
+@thinfont: 'Lora', serif;
+@thickfont: 'Abril Fatface', cursive;
+// *****==============****** MIXINS
+.centermarg {
+	margin: 0 auto;
+}
+.squareimg {
+	height: 30rem;
+	width: 30rem;
+	img {
+		height: 100%;
+		width: 100%;
+		}
+}
+// *****==============****** LESS STYLING
+p, td {
+	font-size: 1.6rem;
+	font-family: @thinfont;
+	line-height: 1.4;
+}
+td {
+	padding: 1rem;
+	border-top: 1px solid #ccc;
+}
+hr {
+	border: 1px solid #ccc;
+	margin: 3rem 0;
+}
+h2 {
+	font-size: 3rem;
+	font-family: @thickfont;
+	margin-bottom: 1.5rem;
+}
+h3 {
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+.container {
+	max-width: @container-max-width;
+	@media (max-width:500px) {
+		width: 100%;
+	}
+	.centermarg;
+	margin-top: 2rem;
+	.nav {
+		display: flex;
+		justify-content: flex-end;
+		&__item {
+			margin-left: 4rem;
+			font-size: 1.6rem;
+		}
+	}
+	.header-main {
+		margin-top: @topspacer;
+		background-color: rgb(228, 238, 241);
+		padding: 6rem 3rem;
+		&__image-holder {
+			.squareimg
+		}
+		&__title {
+			font-family: @thickfont;
+			font-size: 3.8rem;
+			margin: 2rem 0;
+		}
+		&__button {
+			height: 4rem;
+			width: 12rem;
+			color: white;
+			background-color: @button-color;
+			font-size: 1.6rem;
+			border-radius: 4px;
+			margin-top: 2rem;
+		}
+	}
+}
+.skills {
+	margin-top: @topspacer;
+	display: flex;
+	@media (max-width: 500px) {
+		flex-flow: column;
+		align-items: center;
+	}
+	div {
+		width: 50%;
+		@media (max-width: 500px) {
+			width: 90%;
+		}
+	}
+	&__second-header {
+		@media (max-width: 500px) {
+			margin-top: 2rem;
+		}
+	}
+}
+.work {
+	margin-top: @topspacer;
+	&-table {
+		border: none;
+		&--grayed {
+			background-color: rgb(231, 231, 231);
+		}
+	}
+}
+footer {
+	background-color: rgb(122, 122, 122);
+	padding: 2.5rem 0 3.5rem 4rem;
+	margin-top: @topspacer;
+	> p {
+		text-align: center;
+		color: white;
+	}
+}
+
+.mobile-only {
+	display: none;
+	@media (max-width: 500px) {
+		display: block;
+	}
+}
+
 
