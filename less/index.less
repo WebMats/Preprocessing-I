@@ -72,8 +72,8 @@ html {
 @thinfont: 'Lora', serif;
 @thickfont: 'Abril Fatface', cursive;
 // *****==============****** MIXINS
-.centermarg {
-	margin: 0 auto;
+.duomargin(@td, @lr) {
+	margin: @td @lr;
 }
 .squareimg {
 	height: 30rem;
@@ -95,7 +95,7 @@ td {
 }
 hr {
 	border: 1px solid #ccc;
-	margin: 3rem 0;
+	.duomargin(3rem, 0);
 }
 h2 {
 	font-size: 3rem;
@@ -111,7 +111,7 @@ h3 {
 	@media (max-width:500px) {
 		width: 100%;
 	}
-	.centermarg;
+	.duomargin(0, auto);
 	margin-top: 2rem;
 	.nav {
 		display: flex;
@@ -131,7 +131,7 @@ h3 {
 		&__title {
 			font-family: @thickfont;
 			font-size: 3.8rem;
-			margin: 2rem 0;
+			.duomargin(2rem, 0);
 		}
 		&__button {
 			height: 4rem;
